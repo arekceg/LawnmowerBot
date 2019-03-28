@@ -7,8 +7,7 @@ class RandomImage {
 	private  final File image = pickRandomImage();
 
 	 private  File pickRandomImage() {
-		final File dir = new File("./img");
-		File[] images = dir.listFiles();
+		File[] images = new File("./img").listFiles();
 		Random r = new Random();
 		return images[r.nextInt(images.length)];
 	}

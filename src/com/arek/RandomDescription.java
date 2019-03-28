@@ -1,7 +1,5 @@
 package com.arek;
 
-import groovy.json.internal.IO;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +14,7 @@ class RandomDescription {
 	private Path nouns = Paths.get("./wordsSrc/nouns");
 	private Random rand = new Random();
 
-	String makeDescription() throws IOException{
+	String makeDescription() throws IOException {
 		StringBuilder sb = new StringBuilder();
 		return (sb.append("Name: ").append(makeName()).append("\n")
 				.append("Nickname at Lawnmower High School: ").append(makeNickname()).toString());
@@ -27,12 +25,10 @@ class RandomDescription {
 
 		sb.append(pickFrom(names)).append(pickConjunction());
 		if (sb.charAt(sb.length() - 1) == ' ') sb.append(pickFrom(adv)).append(pickFrom(adj));
-//		sb.append("\n");
-//		sb.append(pickFrom(nouns)).append(" ").append(pickFrom(adv)).append(" ").append(pickFrom(adj));
 		return sb.toString();
 	}
 
-	private String makeNickname() throws IOException{
+	private String makeNickname() throws IOException {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(pickFrom(adj)).append(pickFrom(nouns));

@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="KosiarkaBot:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/KosiarkaBot_jar</output-path>
+    <root id="archive" name="KosiarkaBot_jar.jar">
+      <element id="module-output" name="KosiarkaBot" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/restfb/restfb/2.18.1/restfb-2.18.1.jar" path-in-jar="/" />
+      <element id="directory" name="img">
+        <element id="dir-copy" path="$PROJECT_DIR$/img" />
+      </element>
+      <element id="directory" name="wordsSrc">
+        <element id="dir-copy" path="$PROJECT_DIR$/wordsSrc" />
+      </element>
+    </root>
+  </artifact>
+</component>

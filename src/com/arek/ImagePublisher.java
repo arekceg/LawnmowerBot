@@ -6,7 +6,6 @@ import com.restfb.types.Page;
 
 import java.io.File;
 import java.nio.file.Files;
-import java.util.Random;
 
 class ImagePublisher {
 
