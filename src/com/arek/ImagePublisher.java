@@ -10,8 +10,8 @@ import java.util.Random;
 
 class ImagePublisher {
 
-	private static String _TOKEN = "EAACVS6jUj0QBAJu4lZAz4YI8l8dek5KNZAMyZAvLBPA7ZAeilQhG7xPGI5WgwNRr91y5DEJm4xCS4yZBX4OIZBh7fFWYbSCGOxUmNGMBjmjAaVGNCEZApEL0CZBXFJWWwmRjnNdQuBZBaSPhDZCZAOXrEswim4ZBS76gLLYvDeoVZCVFo5QZDZD";
-	private static String _PAGEID = "KosiarkaBot";
+	private static String _TOKEN = "EAACVS6jUj0QBAPi1ZAVc6PudfgQkZAlenY3PN17sGeDElCzUe07ZAA5nwqtXZCuxvuk2XqTpiz6YQmEnahgXrqiV4F2mrmxrifpUTHn2AqEuMuphREoBSZBJ8ZAKuatoYFehMAJnoVQsTp1Cf9Uwmke9mPeEZBiP4ZAVAXpfNK3p8gZDZD";
+	private static String _PAGEID = "lawnmowerbot1";
 
 	private FacebookClient fbClient = new DefaultFacebookClient(_TOKEN, Version.LATEST);
 	Page page = fbClient.fetchObject(_PAGEID, Page.class);
