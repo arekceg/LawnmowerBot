@@ -16,11 +16,11 @@ class ImagePublisher {
 	private FacebookClient fbClient = new DefaultFacebookClient(_TOKEN, Version.LATEST);
 	Page page = fbClient.fetchObject(_PAGEID, Page.class);
 
-	void publishImage(File image) throws Exception {
+	void publishImage(File image, String description) throws Exception {
 		GraphResponse imagePublishedResponse =
 				fbClient.publish(_PAGEID + "/photos", GraphResponse.class,
 						BinaryAttachment.with(image.getName(), Files.readAllBytes((image.toPath()))),
-						Parameter.with("message", "api test"));
+						Parameter.with("message", description));
 		System.out.println("Image published.\n" +
 				"ID: " + imagePublishedResponse.getId());
 	}
