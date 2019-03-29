@@ -1,5 +1,5 @@
 ## LawnmowerBot
-#https://www.facebook.com/lawnmowerbot1
+https://www.facebook.com/lawnmowerbot1
 
 Simple facebook bot build with RestFB. 
 
@@ -9,4 +9,7 @@ In order to use the bot create:
 * **token** file : file named "**token**" in the LawnmowerBot main directory. Paste your PageAuthToken here.
 * **pageid** file : file named "**pageid**" in the LawnmowerBot main directory. Paste your Page Alias here.
 
-If you want to add more names etc, feel free to edit the files in wordSrc directory. 
+If you want to add more names etc, feel free to edit the files in wordSrc directory.
+
+Images downloaded using: https://github.com/hardikvasa/google-images-download
+RestFB: https://mvnrepository.com/artifact/com.restfb/restfb
