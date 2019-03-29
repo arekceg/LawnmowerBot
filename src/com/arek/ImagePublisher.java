@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 class ImagePublisher {
 
 	private String _TOKEN = get_TOKEN();
-	private String _PAGEID = "lawnmowerbot1";
+	private String _PAGEID = get_PAGEID();
 
 	private FacebookClient fbClient = new DefaultFacebookClient(_TOKEN, Version.LATEST);
 	Page page = fbClient.fetchObject(_PAGEID, Page.class);
@@ -27,6 +27,17 @@ class ImagePublisher {
 				"ID: " + imagePublishedResponse.getId());
 	}
 
+
+	private String get_PAGEID() {
+		Path pageidPath = Paths.get("pageid");
+		try {
+			return (Files.readAllLines(pageidPath).get(0));
+		} catch (IOException e) {
+			System.out.println("Error reading pageid file");
+			e.printStackTrace();
+		}
+		return null;
+	}
 	private String get_TOKEN() {
 		Path tokenPath = Paths.get("token");
 		try {
