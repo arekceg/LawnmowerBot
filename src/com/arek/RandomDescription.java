@@ -17,9 +17,8 @@ class RandomDescription {
 	private Random rand = new Random();
 
 	String makeDescription() throws IOException {
-		StringBuilder sb = new StringBuilder();
-		return (sb.append("Name: ").append(makeName()).append("\n")
-				.append("Nickname in High School: ").append(makeNickname()).toString());
+		return ("Name :" + makeName() + "\n" +
+				"Nickname in High School: " + makeNickname());
 	}
 
 	private String makeName() throws IOException {
@@ -37,16 +36,15 @@ class RandomDescription {
 		StringBuilder sb = new StringBuilder();
 		double chance = Math.random();
 
-		if(chance <= 0.3)sb.append(pickFrom(adj)).append(pickFrom(nouns));
-		else if(chance <=0.7)sb.append(pickFrom(adj));
-		else sb.append(pickFrom(nouns));
+		if(chance <= 0.3) sb.append(pickFrom(adj)).append(pickFrom(nouns));
+		else if(chance <=0.7) sb.append(pickFrom(adj));
+		else sb.append (pickFrom(nouns));
 
 		return sb.toString();
 	}
 
 	private String pickFrom(Path path) throws IOException {
-		Path names = path;
-		List<String> namesList = Files.readAllLines(names);
+		List<String> namesList = Files.readAllLines(path);
 		return namesList.get(rand.nextInt(namesList.size()));
 	}
 

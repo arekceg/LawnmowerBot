@@ -12,8 +12,8 @@ import java.nio.file.Paths;
 
 class ImagePublisher {
 
-	private String _TOKEN = get_TOKEN();
-	private String _PAGEID = get_PAGEID();
+	private final String _TOKEN = get_TOKEN();
+	private final String _PAGEID = get_PAGEID();
 
 	private FacebookClient fbClient = new DefaultFacebookClient(_TOKEN, Version.LATEST);
 	Page page = fbClient.fetchObject(_PAGEID, Page.class);
