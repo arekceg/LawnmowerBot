@@ -13,4 +13,4 @@ If you want to add more names etc, feel free to edit the files in wordSrc direct
 
 Images downloaded using: https://github.com/hardikvasa/google-images-download
 
-RestFB: https://mvnrepository.com/artifact/com.restfb/restfb
+RestFB: https://restfb.com/
