@@ -7,5 +7,10 @@ public class Main {
 		ImagePublisher imagePublisher = new ImagePublisher();
 
 		imagePublisher.publishImage(randomImage.getImage(), randomDescription.makeDescription());
+//		for (int i = 0; i < 10; i++) {
+//		System.out.println(randomDescription.makeDescription()+"\n"+
+//				"==================================");
+
 	}
 }
+

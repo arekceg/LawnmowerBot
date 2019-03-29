@@ -7,6 +7,8 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
+import static java.lang.Math.random;
+
 class RandomDescription {
 	private Path names = Paths.get("./wordsSrc/names");
 	private Path adj = Paths.get("./wordsSrc/adj");
@@ -17,21 +19,28 @@ class RandomDescription {
 	String makeDescription() throws IOException {
 		StringBuilder sb = new StringBuilder();
 		return (sb.append("Name: ").append(makeName()).append("\n")
-				.append("Nickname at Lawnmower High School: ").append(makeNickname()).toString());
+				.append("Nickname in High School: ").append(makeNickname()).toString());
 	}
 
 	private String makeName() throws IOException {
 		StringBuilder sb = new StringBuilder();
 
 		sb.append(pickFrom(names)).append(pickConjunction());
-		if (sb.charAt(sb.length() - 1) == ' ') sb.append(pickFrom(adv)).append(pickFrom(adj));
+		if (sb.charAt(sb.length() - 1) == ' '){
+			if(Math.random() <= 0.3) sb.append(pickFrom(adv));
+			else sb.append(pickFrom(adv)).append(pickFrom(adj));
+		}
 		return sb.toString();
 	}
 
 	private String makeNickname() throws IOException {
 		StringBuilder sb = new StringBuilder();
+		double chance = Math.random();
 
-		sb.append(pickFrom(adj)).append(pickFrom(nouns));
+		if(chance <= 0.3)sb.append(pickFrom(adj)).append(pickFrom(nouns));
+		else if(chance <=0.7)sb.append(pickFrom(adj));
+		else sb.append(pickFrom(nouns));
+
 		return sb.toString();
 	}
 
@@ -42,7 +51,7 @@ class RandomDescription {
 	}
 
 	private String pickConjunction() {
-		String[] conjArray = {"", " the ", " the ", " the "};
-		return conjArray[rand.nextInt(3)];
+        StringBuilder conj = new StringBuilder();
+		return(conj.append((random()<0.7 ? " the " : ""))).toString();
 	}
 }
