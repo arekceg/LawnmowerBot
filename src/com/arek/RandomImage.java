@@ -4,15 +4,15 @@ import java.io.File;
 import java.util.Random;
 
 class RandomImage {
-	private  final File image = pickRandomImage();
+	private static File image = pickRandomImage();
 
-	 private  File pickRandomImage() {
+	 private static File pickRandomImage() {
 		File[] images = new File("./img").listFiles();
 		Random r = new Random();
 		return images[r.nextInt(images.length)];
 	}
 
-	 File getImage() {
+	 static File getImage() {
 		return image;
 	}
 }

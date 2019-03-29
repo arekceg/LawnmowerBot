@@ -5,12 +5,15 @@ import com.restfb.types.GraphResponse;
 import com.restfb.types.Page;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 class ImagePublisher {
 
-	private static String _TOKEN = "EAACVS6jUj0QBAPi1ZAVc6PudfgQkZAlenY3PN17sGeDElCzUe07ZAA5nwqtXZCuxvuk2XqTpiz6YQmEnahgXrqiV4F2mrmxrifpUTHn2AqEuMuphREoBSZBJ8ZAKuatoYFehMAJnoVQsTp1Cf9Uwmke9mPeEZBiP4ZAVAXpfNK3p8gZDZD";
-	private static String _PAGEID = "lawnmowerbot1";
+	private String _TOKEN = get_TOKEN();
+	private String _PAGEID = "lawnmowerbot1";
 
 	private FacebookClient fbClient = new DefaultFacebookClient(_TOKEN, Version.LATEST);
 	Page page = fbClient.fetchObject(_PAGEID, Page.class);
@@ -22,5 +25,16 @@ class ImagePublisher {
 						Parameter.with("message", description));
 		System.out.println("Image published.\n" +
 				"ID: " + imagePublishedResponse.getId());
+	}
+
+	private String get_TOKEN() {
+		Path tokenPath = Paths.get("token");
+		try {
+			return (Files.readAllLines(tokenPath).get(0));
+		} catch (IOException e) {
+			System.out.println("Error reading token file");
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
