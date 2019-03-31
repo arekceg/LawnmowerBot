@@ -4,12 +4,8 @@
     <root id="archive" name="KosiarkaBot_jar.jar">
       <element id="module-output" name="KosiarkaBot" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/restfb/restfb/2.18.1/restfb-2.18.1.jar" path-in-jar="/" />
-      <element id="directory" name="img">
-        <element id="dir-copy" path="$PROJECT_DIR$/img" />
-      </element>
-      <element id="directory" name="wordsSrc">
-        <element id="dir-copy" path="$PROJECT_DIR$/wordsSrc" />
-      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/../pageid" />
+      <element id="file-copy" path="$PROJECT_DIR$/../token" />
     </root>
   </artifact>
 </component>

@@ -1,6 +1,8 @@
 package com.arek;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,14 +12,23 @@ import java.util.Random;
 import static java.lang.Math.random;
 
 class RandomDescription {
-	private Path names = Paths.get("./wordsSrc/names");
-	private Path adj = Paths.get("./wordsSrc/adj");
-	private Path adv = Paths.get("./wordsSrc/adv");
-	private Path nouns = Paths.get("./wordsSrc/nouns");
+	private String currentDirectory;
+	{
+		try {
+			currentDirectory = new File(ImagePublisher.class.getProtectionDomain().getCodeSource().getLocation()
+					.toURI()).getParentFile().getPath();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+	}
+	private Path names = Paths.get(currentDirectory + "/wordsSrc/names");
+	private Path adj = Paths.get(currentDirectory + "/wordsSrc/adj");
+	private Path adv = Paths.get(currentDirectory + "/wordsSrc/adv");
+	private Path nouns = Paths.get(currentDirectory + "/wordsSrc/nouns");
 	private Random rand = new Random();
 
 	String makeDescription() throws IOException {
-		return ("Name :" + makeName() + "\n" +
+		return ("Name: " + makeName() + "\n" +
 				"Nickname in High School: " + makeNickname());
 	}
 
