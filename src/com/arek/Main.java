@@ -8,5 +8,6 @@ public class Main {
 
 		imagePublisher.publishImage(randomImageGenerator.pickRandomImage(), randomDescriptionGenerator.makeDescription());
 	}
+
 }
 

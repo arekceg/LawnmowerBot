@@ -9,8 +9,6 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
-import static java.lang.Math.random;
-
 class RandomDescriptionGenerator {
 	private String currentDirectory;
 	{
@@ -19,6 +17,7 @@ class RandomDescriptionGenerator {
 					.toURI()).getParentFile().getParentFile().getParentFile().getParentFile().getPath();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
+			throw new RuntimeException();
 		}
 	}
 	private Path names = Paths.get(currentDirectory + "/wordsSrc/names");
@@ -33,14 +32,13 @@ class RandomDescriptionGenerator {
 	}
 
 	private String makeName() throws IOException {
-		StringBuilder sb = new StringBuilder();
+		return pickFrom(names) + makeNameSuffix();
+	}
 
-		sb.append(pickFrom(names)).append(pickConjunction());
-		if (sb.charAt(sb.length() - 1) == ' '){
-			if(Math.random() <= 0.3) sb.append(pickFrom(adj));
-			else sb.append(pickFrom(adv)).append(pickFrom(adj));
-		}
-		return sb.toString();
+	private String makeNameSuffix() throws IOException{
+		if(Math.random()<0.5) return "";
+		else if(Math.random()<0.5) return " the " + pickFrom(adj);
+		else return " the " + pickFrom(adv) + pickFrom(adj);
 	}
 
 	private String makeNickname() throws IOException {
@@ -57,10 +55,5 @@ class RandomDescriptionGenerator {
 	private String pickFrom(Path path) throws IOException {
 		List<String> namesList = Files.readAllLines(path);
 		return namesList.get(rand.nextInt(namesList.size()));
-	}
-
-	private String pickConjunction() {
-        StringBuilder conj = new StringBuilder();
-		return(conj.append((random()<0.7 ? " the " : ""))).toString();
 	}
 }
