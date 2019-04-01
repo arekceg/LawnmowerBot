@@ -2,25 +2,11 @@ package com.arek;
 
 import com.restfb.*;
 import com.restfb.types.GraphResponse;
-import com.restfb.types.Page;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 class ImagePublisher {
-	private String currentDirectory;
-	{
-		try {
-			currentDirectory = new File(ImagePublisher.class.getProtectionDomain().getCodeSource().getLocation()
-						.toURI()).getParentFile().getPath();
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-		}
-	}
 	private final String _TOKEN = System.getenv("TOKEN");
 	private final String _PAGEID = System.getenv("PAGEID_LAWN");
 
@@ -33,27 +19,5 @@ class ImagePublisher {
 						Parameter.with("message", description));
 		System.out.println("Image published.\n" +
 				"ID: " + imagePublishedResponse.getId());
-	}
-
-
-	private String get_PAGEID() {
-		Path pageidPath = Paths.get(currentDirectory + "/"+"pageid");
-		try {
-			return (Files.readAllLines(pageidPath).get(0));
-		} catch (IOException e) {
-			System.out.println("Error reading pageid file");
-			e.printStackTrace();
-		}
-		return null;
-	}
-	private String get_TOKEN() {
-		Path tokenPath = Paths.get(currentDirectory+ "/" + "token");
-		try {
-			return (Files.readAllLines(tokenPath).get(0));
-		} catch (IOException e) {
-			System.out.println("Error reading token file");
-			e.printStackTrace();
-		}
-		return null;
 	}
 }

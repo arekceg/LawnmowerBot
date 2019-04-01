@@ -7,13 +7,6 @@ public class Main {
 		ImagePublisher imagePublisher = new ImagePublisher();
 
 		imagePublisher.publishImage(randomImageGenerator.pickRandomImage(), randomDescriptionGenerator.makeDescription());
-
-//		System.out.println(System.getenv("PAGEID_LAWN"));
-////    UNCOMMENT FOR NAME TESTING:
-//		for (int i = 0; i < 10; i++) {
-//		System.out.println(randomDescriptionGenerator.makeDescription()+"\n"+
-//				"==================================");
-
 	}
 }
 

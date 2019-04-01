@@ -18,12 +18,8 @@ class RandomImageGenerator {
 
 	File pickRandomImage() {
 		Random r = new Random();
-//		try {
 			File[] images = new File(currentDirectory + "/img").listFiles();
 			return images[r.nextInt(images.length)];
-//		} catch (NullPointerException e) {
-//			throw new RuntimeException();
-//		}
 	}
 
 }
