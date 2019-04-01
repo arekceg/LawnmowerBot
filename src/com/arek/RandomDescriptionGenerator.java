@@ -11,12 +11,12 @@ import java.util.Random;
 
 import static java.lang.Math.random;
 
-class RandomDescription {
+class RandomDescriptionGenerator {
 	private String currentDirectory;
 	{
 		try {
 			currentDirectory = new File(ImagePublisher.class.getProtectionDomain().getCodeSource().getLocation()
-					.toURI()).getParentFile().getPath();
+					.toURI()).getParentFile().getParentFile().getParentFile().getParentFile().getPath();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}

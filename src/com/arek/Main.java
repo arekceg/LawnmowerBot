@@ -2,15 +2,16 @@ package com.arek;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		RandomDescription randomDescription = new RandomDescription();
-		RandomImage randomImage = new RandomImage();
+		RandomDescriptionGenerator randomDescriptionGenerator = new RandomDescriptionGenerator();
+		RandomImageGenerator randomImageGenerator = new RandomImageGenerator();
 		ImagePublisher imagePublisher = new ImagePublisher();
 
-		imagePublisher.publishImage(randomImage.pickRandomImage(), randomDescription.makeDescription());
+		imagePublisher.publishImage(randomImageGenerator.pickRandomImage(), randomDescriptionGenerator.makeDescription());
 
+//		System.out.println(System.getenv("PAGEID_LAWN"));
 ////    UNCOMMENT FOR NAME TESTING:
 //		for (int i = 0; i < 10; i++) {
-//		System.out.println(randomDescription.makeDescription()+"\n"+
+//		System.out.println(randomDescriptionGenerator.makeDescription()+"\n"+
 //				"==================================");
 
 	}

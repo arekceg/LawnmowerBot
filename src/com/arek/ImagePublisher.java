@@ -21,11 +21,10 @@ class ImagePublisher {
 			e.printStackTrace();
 		}
 	}
-	private final String _TOKEN = get_TOKEN();
-	private final String _PAGEID = get_PAGEID();
+	private final String _TOKEN = System.getenv("TOKEN");
+	private final String _PAGEID = System.getenv("PAGEID_LAWN");
 
 	private FacebookClient fbClient = new DefaultFacebookClient(_TOKEN, Version.LATEST);
-	Page page = fbClient.fetchObject(_PAGEID, Page.class);
 
 	void publishImage(File image, String description) throws Exception {
 		GraphResponse imagePublishedResponse =
