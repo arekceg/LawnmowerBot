@@ -27,12 +27,12 @@ class RandomImageGenerator {
 		File randomImage = images[r.nextInt(images.length)];
 		Path destPath = Paths.get(currentDirectory+"/img/used/"+ randomImage.getName());
 		try {
-			Files.move(randomImage.toPath(), destPath);
+			return (Files.move(randomImage.toPath(), destPath)).toFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
-		return randomImage;
+
 
 	}
 
