@@ -37,7 +37,7 @@ class RandomDescriptionGenerator {
 
 		sb.append(pickFrom(names)).append(pickConjunction());
 		if (sb.charAt(sb.length() - 1) == ' '){
-			if(Math.random() <= 0.3) sb.append(pickFrom(adv));
+			if(Math.random() <= 0.3) sb.append(pickFrom(adj));
 			else sb.append(pickFrom(adv)).append(pickFrom(adj));
 		}
 		return sb.toString();
